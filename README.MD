@@ -87,3 +87,33 @@ int main()
 
 - 由于找不到 libopencv_imgcodecs420.dll，无法继续执行代码
   - 添加环境变量 path => D:\software\opencv\mingw\install\x64\mingw\bin
+
+## 基本操作
+
+- cv::waitKey() 键盘绑定函数，等待任何键盘事件指定的毫秒。其参数是以毫秒为单位的时间
+- cv::destroyAllWindows() 销毁所有窗口
+- cv::destroyWindow() 销毁特定的窗口，确切的窗口名称作为参数
+- cv.namedWindow('image'，cv.WINDOW_NORMAL) 创建空窗口
+
+### 图像
+
+- Mat vc::imread - 读
+  - cv::imread("webgl24glb.jpg", cv::IMREAD_UNCHANGED);
+- vc::imwrite - 写
+  - cv::imwrite("save.png", img);
+- vc::imshow - 展示
+  - cv::imshow("image", img);
+
+### 视频
+
+- cv::VideoCapture
+- cap.isOpened() - 是否打开成功
+- cap.release()
+
+- 从相机中读取视频
+- 从文件播放视频
+  - cv::VideoCapture("last.mp4")
+  - 获取帧
+    - cap.read(frame)
+    - cap>>frame
+  - 是否为空帧 - frame.empty()
